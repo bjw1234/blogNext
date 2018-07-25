@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>blog-zuozuomu</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>blog-ZuoZuomu</title>
     <link rel="stylesheet" type="text/css" href="./css/fonts.css">
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
 </head>
 <body>
 <div class="index-wrapper">
-    <div class="index-side-menu">
+    <!--侧边菜单-->
+    <div id="id-sideMenu" class="index-side-menu">
         <div class="side-menu-top">
             <div class="header"></div>
             <h2 class="name">ZuoZuomu</h2>
@@ -41,10 +43,16 @@
             </a>
         </div>
     </div>
-    <div class="index-content-wrapper">
-        <div class="index-header">
-            <div class="header-txt">我的博客</div>
+    <!--右侧内容-->
+    <div id="id-content" class="index-content-wrapper">
+        <!--内容header-->
+        <div id="id-topBar" class="index-header">
+            <div id="id-menuIcon" class="menu-icon">
+                <i class="icon-pushpin"></i>
+            </div>
+            <div id="id-topTxt" class="header-txt">我的博客</div>
         </div>
+        <!--内容content-->
         <div class="index-content">
             <div class="content-top">
                 <canvas id="universe"></canvas>
@@ -166,10 +174,10 @@
                     </svg>
                 </div>
             </div>
-            <div class="article-wrapper">
+            <div id="id-article" class="article-wrapper">
                 <div class="article">
                     <div class="article-header">
-                        <h1 class="title">《你的名字》观后感</h1>
+                        <h1 class="title">《你的名字》观后感《你的名字》观后感《你的名字》观后感《你的名字》观后感</h1>
                         <div class="time">
                             <i class="icon-calendar"></i>
                             <span class="txt">2018-7-23</span>
@@ -177,7 +185,7 @@
                     </div>
                     <div class="article-content">
                         <p class="img">
-                            <img src="image/yourname.jpg" width="600">
+                            <img src="image/yourname.jpg">
                         </p>
                         <div class="desc">
                             在远离大都市的小山村，住着巫女世家出身的高中女孩宫水三叶。校园和家庭的原因让她充满烦恼，而最近发生了很奇怪的事情，不知从何时起，三叶在梦中就会变成一个住在东京的高中的男孩，那里有陌生的同学和朋友，亲切的前辈和繁华的街道，一切都是如此诱人而又真实。另一方面，住在东京的高中男孩立花泷则总在梦里来到陌生的小山村，以女孩子的身份过着全新的生活。许是受那颗神秘彗星的影响，泷和三叶在梦中交换了身份，他们以他者的角度体验着对方的人生，这期间有愤怒、有欢笑也有暖心。
@@ -195,7 +203,39 @@
                                 <a href="/">心情日志</a>
                             </li>
                         </ul>
-                        <div class="more">展开全文&gt;&gt</div>
+                        <div class="more">展开全文&gt;&gt;</div>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="article-header">
+                        <h1 class="title">元芳，你怎么看</h1>
+                        <div class="time">
+                            <i class="icon-calendar"></i>
+                            <span class="txt">2018-7-23</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <p class="img">
+                            <img src="image/yourname.jpg" width="600">
+                        </p>
+                        <div class="desc">
+                            大人，其实我觉得大家别问元芳，元芳不是神人，也不会武功，也许还是个智障，我就不信我在这里黑元芳他会突然飞檐走壁来到我身后把我的头按在键盘上yu7jhklhgjkfgt;/.";.
+                            yujh bnujm798u7jrtb5 tq1qwsewrt5
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <div class="icon">
+                            <i class="icon-price-tag"></i>
+                        </div>
+                        <ul class="tags clearfix">
+                            <li class="tag">
+                                <a href="/">随笔</a>
+                            </li>
+                            <li class="tag">
+                                <a href="/">心情日志</a>
+                            </li>
+                        </ul>
+                        <div class="more">展开全文&gt;&gt;</div>
                     </div>
                 </div>
                 <div class="article">
@@ -226,11 +266,44 @@
                                 <a href="/">心情日志</a>
                             </li>
                         </ul>
-                        <div class="more">展开全文&gt;&gt</div>
+                        <div class="more">展开全文&gt;&gt;</div>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="article-header">
+                        <h1 class="title">元芳，你怎么看</h1>
+                        <div class="time">
+                            <i class="icon-calendar"></i>
+                            <span class="txt">2018-7-23</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <p class="img">
+                            <img src="image/yourname.jpg" width="600">
+                        </p>
+                        <div class="desc">
+                            大人，其实我觉得大家别问元芳，元芳不是神人，也不会武功，也许还是个智障，我就不信我在这里黑元芳他会突然飞檐走壁来到我身后把我的头按在键盘上yu7jhklhgjkfgt;/.";.
+                            yujh bnujm798u7jrtb5 tq1qwsewrt5
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <div class="icon">
+                            <i class="icon-price-tag"></i>
+                        </div>
+                        <ul class="tags clearfix">
+                            <li class="tag">
+                                <a href="/">随笔</a>
+                            </li>
+                            <li class="tag">
+                                <a href="/">心情日志</a>
+                            </li>
+                        </ul>
+                        <div class="more">展开全文&gt;&gt;</div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--内容footer-->
         <div class="index-footer">
             <div class="pagination clearfix">
                 <div class="prev">上一页</div>
@@ -246,8 +319,15 @@
                 <span class="record"><a href="http://www.miitbeian.gov.cn" target="_blank">津ICP备18002130号</a></span>
             </div>
         </div>
+        <!--返回顶部-->
+        <div id="id-backTop" class="back-top">
+            <i class="icon-book"></i>
+        </div>
     </div>
+    <!--移动端全屏遮罩层-->
+    <div id="id-mask" class="mask"></div>
 </div>
+<script src="./js/main.js" type="text/javascript"></script>
 <script src="./js/star.js" type="text/javascript"></script>
 </body>
 </html>
