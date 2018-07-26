@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block article %}
+    {% for art in data.articles %}
+    <div class="article">
+        <div class="article-header">
+            <h1 class="title">{{ art.title }}</h1>
+            <div class="time">
+                <i class="icon-calendar"></i>
+                <span class="txt">{{ art.userTime }}</span>
+            </div>
+        </div>
+        <div class="article-content">
+            <p class="img">
+                <img src="/public/image/yourname.jpg">
+            </p>
+            <div class="desc">{{ art.description }}</div>
+        </div>
+        <div class="article-info">
+            {% if art.children.length > 0 %}
+            <div class="icon">
+                <i class="icon-price-tag"></i>
+            </div>
+            {% endif %}
+            <ul class="tags clearfix">
+                {% for tag in art.children %}
+                <li class="tag">
+                    <a href="{{ data.url }}{{ tag._id.toString() }}">{{ tag.category_name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <a class="more" href="/views?article_id={{ art._id.toString() }}">展开全文&gt;&gt;</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+{% block pagination %}
+    {% include 'pagination.html' %}
+{% endblock %}

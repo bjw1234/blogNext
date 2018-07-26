@@ -44,7 +44,6 @@ menuIcon.addEventListener('click', function () {
     var winW = window.innerWidth; // 页面宽度
     // 是否为移动端
     if (winW < mediaMark) {
-        console.log('mobile...');
         if (mobileMenuIsShow) {
             sideMenu.classList.remove('show');
             mask.classList.remove('show');

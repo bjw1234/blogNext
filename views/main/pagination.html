@@ -1,0 +1,35 @@
+<div class="pagination clearfix">
+    <div class="next {% if data.maxPage===0||data.page===data.maxPage %} disabled {% endif %}">
+        <a href="{% if data.maxPage===0||data.page===data.maxPage %} javascript:;  {% else %} {{ data.url }}?page={{  data.page+1 }} {% endif %}">后一页
+            <span aria-hidden="true">&rarr;</span>
+        </a>
+    </div>
+    <ul class="num">
+        {% if data.page-2>0 %}
+        <li class="item">
+            <a href="{{ data.url }}?page={{ data.page - 2 }}">{{ data.page - 2 }}</a>
+        </li>
+        {% endif %}
+        {% if data.page-1>0 %}
+        <li class="item">
+            <a href="{{ data.url }}?page={{ data.page - 1 }}">{{ data.page - 1 }}</a>
+        </li>
+        {% endif %}
+        <li class="active item">{{ data.page }}</li>
+        {% if data.page+1<= data.maxPage %}
+        <li class="item">
+            <a href="{{ data.url }}?page={{ data.page + 1 }}">{{ data.page + 1 }}</a>
+        </li>
+        {% endif %}
+        {% if data.page+2<= data.maxPage %}
+        <li class="item">
+            <a href="{{ data.url }}?page={{ data.page + 2 }}">{{ data.page + 2 }}</a>
+        </li>
+        {% endif %}
+    </ul>
+    <div class="prev {% if data.page===1 %} disabled {% endif %}">
+        <a href="{% if data.page===1 %} javascript:;  {% else %} {{ data.url }}?page={{  data.page-1 }} {% endif %}">
+            <span aria-hidden="true">&larr;</span> 前一页
+        </a>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block article %}
+<div class="article" style="overflow: hidden">
+    <div class="article-header">
+        <h1 class="title">{{ data.article.title }}</h1>
+        <div class="time">
+            <i class="icon-calendar"></i>
+            <span class="txt">{{ data.article.userTime }}</span>
+        </div>
+    </div>
+    <div class="article-content">
+        <p class="img">
+            <img src="/public/image/yourname.jpg">
+        </p>
+        <div class="desc views">
+            {% autoescape false %}
+            {{ data.article_content_html }}
+            {% endautoescape %}
+        </div>
+    </div>
+    <div class="article-info">
+        {% if data.article.children.length > 0 %}
+        <div class="icon">
+            <i class="icon-price-tag"></i>
+        </div>
+        {% endif %}
+        <ul class="tags clearfix">
+            {% for tag in data.article.children %}
+            <li class="tag">
+                <a href="/{{ tag._id.toString() }}">{{ tag.category_name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
