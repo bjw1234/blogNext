@@ -107,6 +107,27 @@ router.post('/photos/add', (req, res) => {
 });
 
 /**
+ * 删除图片操作
+ */
+router.get('/photos/delete', (req, res) => {
+    let id = req.query.id || '';
+    Photo.remove({
+        _id: id
+    }).then(() => {
+        res.render('admin/success', {
+            userInfo: req.userInfo,
+            message: '图片删除成功!',
+            url: '/admin/photos'
+        });
+    });
+});
+
+/**
+ * 修改图片
+ */
+// router.get('');
+
+/**
  * 用户管理
  */
 router.get('/user', (req, res) => {

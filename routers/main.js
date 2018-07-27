@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../models/user');
+// const User = require('../models/user');
 const Article = require('../models/article');
 const Photo = require('../models/photo');
 const marked = require('marked');
@@ -7,7 +7,7 @@ const hljs = require('highlight.js');
 const router = express.Router();
 
 // 每页显示的条数
-const limit = 2;
+const limit = 5;
 
 // marked相关配置
 marked.setOptions({
@@ -56,6 +56,9 @@ router.get('/', (req, res) => {
                 articles.forEach(art => {
                     let tags = art.children.map(child => child.category_name);
                     if (tags.includes(data.category)) {
+                        if (art.description) {
+                            art.description_html = marked(art.description);
+                        }
                         result.push(art);
                     }
                 });
@@ -102,6 +105,13 @@ router.get('/', (req, res) => {
                     data.maxPage = Math.ceil(countDocuments / limit);
                 });
         }).then(() => {
+            if (data.articles.length > 0) {
+                data.articles.forEach(art => {
+                    if (art.description) {
+                        art.description_html = marked(art.description);
+                    }
+                })
+            }
             // 渲染页面
             res.render('main/index', {
                 title: '博客首页',

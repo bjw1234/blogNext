@@ -3,11 +3,13 @@
 {% block article %}
 {% if data.photos !== undefined %}
 <div class="article">
+    <div class="article-header">
+        <h1 class="title">相册</h1>
+    </div>
     <div class="article-content">
         {% for photo in data.photos %}
-        <div class="photo-topic">{{ photo.topic }}</div>
         <div class="photo-time">{{ photo.time }}</div>
-        <div class="photo-content">
+        <div id="id-photoContent" class="photo-content">
             {% autoescape false %}
             {{ photo.content_html }}
             {% endautoescape %}

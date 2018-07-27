@@ -1,0 +1,44 @@
+/*对markdown样式的补充*/
+pre {
+    display: block;
+    padding: 10px;
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #abb2bf;
+    background: #282c34;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+strong {
+    font-weight: bold;
+}
+
+p > code:not([class]) {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+#id-article {
+    font-family: "Microsoft YaHei";
+}
+
+#id-article .desc ul,#id-article .desc ol {
+    color: #333333;
+    margin: 1.5em 0 0 25px;
+}
+
+#id-article .desc h1, #id-article .desc h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#id-article .desc a {
+    color: #009a61;
+}
+

@@ -16,6 +16,7 @@ var mask = document.getElementById('id-mask');
 
 var doc = document.documentElement || document.body;
 var winH = window.innerHeight; // 页面高度
+var winW = window.innerWidth; // 页面高度
 
 var mediaMark = 800; // 媒体查询基准值
 
@@ -86,5 +87,31 @@ function smoothScroll() {
 // 给图片父元素设置宽度
 var imgs = document.querySelectorAll('.article-content img');
 imgs.forEach(function (img) {
-    img.parentElement.style.maxWidth = '70%'
+    img.parentElement.style.maxWidth = '70%';
 });
+
+
+// 给相册的父元素设置宽度
+var imgs = document.querySelectorAll('#id-photoContent img');
+imgs.forEach(function (img) {
+    if (winW > mediaMark) {
+        img.parentElement.style = 'height:192px;max-width:25%;display:inline-block;overflow:hidden;';
+    } else {
+        img.parentElement.style = 'height:172px;max-width:50%;display:inline-block;overflow:hidden;';
+    }
+});
+
+// 修改tag的颜色
+var befs = document.querySelectorAll('.before');
+befs.forEach(function (bef) {
+    var color = getRandomTag();
+    bef.style['border-right-color'] = color;
+    bef.parentElement.style.background = color;
+});
+
+function getRandomTag() {
+    var colors = ['#7b5d5f', '#ba8f6c', '#ff945c', '#cc8167', '#5c9466'];
+    return colors[Math.floor(Math.random() * 5)];
+}
+
+
