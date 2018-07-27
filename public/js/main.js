@@ -61,6 +61,7 @@ menuIcon.addEventListener('click', function () {
     topBar.classList.toggle('hidden');
 });
 
+// 浮层点击
 mask.addEventListener('click', function () {
     sideMenu.classList.remove('show');
     mask.classList.remove('show');
@@ -82,3 +83,8 @@ function smoothScroll() {
     }
 }
 
+// 给图片父元素设置宽度
+var imgs = document.querySelectorAll('.article-content img');
+imgs.forEach(function (img) {
+    img.parentElement.style.maxWidth = '70%'
+});

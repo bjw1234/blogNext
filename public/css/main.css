@@ -231,7 +231,8 @@ body {
 }
 
 .index-content {
-    min-height: calc(100vh - 55px);
+    overflow: hidden;
+    min-height: calc(100vh - 50px);
 }
 
 .index-content .article-wrapper {
@@ -264,7 +265,7 @@ body {
 
 .article-wrapper .article-header {
     border-left: 5px solid #4d4d4d;
-    padding: 30px 0 15px 0;
+    padding: 15px 0 5px 0;
     padding-left: 7.6%;
     padding-right: 7.6%;
 }
@@ -286,6 +287,7 @@ body {
 .article-header .time {
     float: right;
     color: #999;
+    margin-top: 20px;
     line-height: 32px;
 }
 
@@ -294,11 +296,7 @@ body {
     box-sizing: border-box;
 }
 
-.article .article-content .img {
-    max-width: 90%;
-}
-
-.article .article-content .img img {
+.article .article-content img {
     width: 100%;
 }
 
@@ -321,10 +319,12 @@ body {
 .article-info .icon {
     color: #666;
     display: inline-block;
+    position: absolute;
 }
 
 .article-info .tags {
     display: inline-block;
+    margin-left: 20px;
 }
 
 .article-info .more {
@@ -336,12 +336,18 @@ body {
     cursor: pointer;
     line-height: 14px;
     padding: 7px 10px;
+    margin-bottom: 15px;
 }
 
 .article-info .tags .tag {
     float: left;
     height: 18px;
+    margin-bottom: 10px;
     margin-left: 20px;
+}
+
+.icon-price-tag {
+    font-size: 20px;
 }
 
 .tags .tag a {
@@ -385,7 +391,8 @@ body {
     margin: 25px 3%;
 }
 
-.pagination .prev, .pagination .next {
+.pagination .prev a, .pagination .next a {
+    display: block;
     padding: 8px 10px;
 }
 
@@ -400,7 +407,6 @@ body {
 .pagination .num .item {
     float: left;
     display: inline-block;
-    padding: 8px 10px;
 }
 
 .pagination .prev, .pagination .next, .pagination .item {
@@ -414,11 +420,20 @@ body {
     user-select: none;
 }
 
+.pagination .prev a, .pagination .next a {
+
+}
+
+.pagination .item a {
+    display: block;
+    padding: 8px 10px;
+}
+
 .pagination .prev:hover, .pagination .next:hover, .pagination .item:hover {
     border-color: #171c3a;
 }
 
-.pagination .active {
+.pagination .active a {
     color: #ffffff;
     background: #171c3a;
     border: none;
@@ -471,6 +486,40 @@ body {
 
 .back-top.show {
     display: block;
+}
+
+.article-nav {
+    padding: 25px 0;
+}
+
+.article-nav .article-prev {
+    float: left;
+}
+
+.article-nav .article-next {
+    float: right;
+}
+
+.article-nav .nav .arrow {
+    vertical-align: middle;
+    padding: 0 8px;
+}
+
+.article-nav .nav a {
+    color: #171c3a;
+}
+
+.article-nav .nav a:hover {
+    color: #000;
+}
+
+#SOHUCS > div[node-type] {
+    box-sizing: border-box;
+}
+
+#feedAv {
+    margin-top: -250px !important;
+    transform: scale(0);
 }
 
 /**
@@ -527,6 +576,19 @@ body {
 
     .index-header .header-txt {
         transform: translateY(0)
+    }
+
+    .article-nav .nav {
+        float: none;
+        margin: 20px 0;
+    }
+
+    .article-nav .nav .arrow {
+        float: left;
+    }
+
+    .article-nav .nav a {
+        padding-left: 10px;
     }
 }
 

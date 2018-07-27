@@ -19,7 +19,7 @@
             {% endautoescape %}
         </div>
     </div>
-    <div class="article-info">
+    <div class="article-info clearfix">
         {% if data.article.children.length > 0 %}
         <div class="icon">
             <i class="icon-price-tag"></i>
@@ -28,10 +28,34 @@
         <ul class="tags clearfix">
             {% for tag in data.article.children %}
             <li class="tag">
-                <a href="/{{ tag._id.toString() }}">{{ tag.category_name }}</a>
+                <a href="/?category={{ tag.category_name }}">{{ tag.category_name }}</a>
             </li>
             {% endfor %}
         </ul>
     </div>
 </div>
+<div class="article-nav clearfix">
+    {% if data.prev != undefined %}
+    <div class="nav article-prev">
+        <a href="/views?article_id={{ data.prev._id.toString() }}">
+            <i class="arrow icon-arrow-outline-left"></i>{{ data.prev.title}}
+        </a>
+    </div>
+    {% endif %}
+    {% if data.next != undefined %}
+    <div class="nav article-next">
+        <a href="/views?article_id={{ data.next._id.toString() }}">
+            {{ data.next.title }}<i class="arrow icon-arrow-outline-right"></i></a>
+    </div>
+    {% endif %}
+</div>
+<!--PC版-->
+<div id="SOHUCS" sid="{{ data.article._id.toString() }}"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cytnhRNIM',
+        conf: 'prod_eb5b9f2ecc9626945b387ec815c92385'
+    });
+</script>
 {% endblock %}

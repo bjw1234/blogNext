@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/user');
-const Category = require('../models/category');
 const Article = require('../models/article');
+const Photo = require('../models/photo');
 const router = express.Router();
 
 // router.use((req, res, next) => {
@@ -34,10 +34,80 @@ router.get('/', (req, res) => {
 });
 
 /**
+ * 相册首页
+ */
+router.get('/photos', (req, res) => {
+
+    Photo.countDocuments().then(counts => {
+        if (!counts) {
+            return Promise.reject('no photos');
+        }
+        let limits = 10;
+        let page = Number(req.query.page) || 1;
+        page = Math.max(1, Math.min(Math.ceil(counts / limits), page));
+        let skip = (page - 1) * limits;
+
+        Photo.find().skip(skip).limit(limits).then(result => {
+            res.render('admin/photos', {
+                userInfo: req.userInfo,
+                photos: result,
+                page: page,
+                maxPage: Math.ceil(counts / limits),
+                url: '/admin/photos'
+            });
+        });
+    }).catch(() => {
+        res.render('admin/photos', {
+            userInfo: req.userInfo,
+            url: '/admin/photos'
+        });
+    });
+});
+
+/**
+ * 添加图片页面
+ */
+router.get('/photos/add', (req, res) => {
+    res.render('admin/photos_add', {
+        userInfo: req.userInfo
+    });
+});
+
+/**
+ * 添加图片的操作
+ */
+router.post('/photos/add', (req, res) => {
+    let time = req.body.time || '';
+    let topic = req.body.topic || '';
+    let photos = req.body.photos || '';
+
+    // 定义返回数据的格式
+    let responseData = {
+        code: 0,
+        message: ''
+    };
+
+    console.log(time, topic, photos);
+    if (!(time && topic && photos)) {
+        responseData.message = '时间、主题或内容为空';
+        responseData.code = 88;
+        res.json(responseData);
+        return;
+    }
+
+    new Photo({
+        time: time,
+        topic: topic,
+        photos: photos
+    }).save().then(() => {
+        responseData.message = '图片添加成功！';
+        res.json(responseData);
+    });
+
+});
+
+/**
  * 用户管理
- *  查询数据库找到所有数据
- *  limit(number) : 限制获取的数据条数
- *  skip(Number): 忽略数据的条数 前number条
  */
 router.get('/user', (req, res) => {
 
@@ -67,7 +137,6 @@ router.get('/user', (req, res) => {
         });
     });
 });
-
 
 /**
  * 文章管理首页

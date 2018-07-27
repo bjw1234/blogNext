@@ -68,6 +68,9 @@ body {
     width: 10px;
     height: 10px;
 }
+::-webkit-scrollbar:horizontal {
+    height: 3px;
+}
 
 /*主干样式*/
 ::-webkit-scrollbar-track {
@@ -104,7 +107,6 @@ body {
 /*水平按钮样式*/
 ::-webkit-scrollbar-button:horizontal {
     display: none;
-    height: 5px;
 }
 
 /*上端按钮样式*/

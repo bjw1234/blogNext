@@ -15,7 +15,8 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/layer-v3.1.1/layer/layer.js"></script>
-    <script type="text/javascript" src="/public/js/base64.js"></script>
+    <script type="text/javascript" src="/public/js/base64.js"></script>	
+    <script async id="chevereto-pup-src" src="https://imgchr.com/sdk/pup.js" data-url="https://imgchr.com/upload" data-auto-insert="bbcode-embed-medium"></script>
     {% block script %}{% endblock %}
 </head>
 <body>
@@ -46,6 +47,15 @@
                     <ul class="dropdown-menu">
                         <li><a href="/admin/article">管理首页</a></li>
                         <li><a href="/admin/article/add">添加文章</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">相册管理<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/photos">相册首页</a></li>
+                        <li><a href="/admin/photos/add">添加图片</a></li>
                     </ul>
                 </li>
             </ul>
