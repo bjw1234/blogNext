@@ -8,3 +8,6 @@
 
 需要本地有MongoDB数据库支持。
 
+更详细的内容请看segmentFault社区文章：
+
+https://segmentfault.com/a/1190000015802246
