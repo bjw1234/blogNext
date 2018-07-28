@@ -25,7 +25,7 @@
         <ul class="tags clearfix">
             {% for tag in data.article.children %}
             <li class="tag">
-                <a href="/?category={{ tag.category_name }}">{{ tag.category_name }}</a>
+                <a href="/?category={{ tag.category_name }}"><i class="before"></i>{{ tag.category_name }}</a>
             </li>
             {% endfor %}
         </ul>

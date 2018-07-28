@@ -32,7 +32,7 @@
         {% endif %}
     </ul>
     <div class="prev {% if data.page===1 %} disabled {% endif %}">
-        <a href="{% if data.page===1 %} javascript:;  {% else %} {{ data.url }}&page={{ data.page-1 }} {% endif %}">
+        <a href="{% if data.page===1 %} javascript:;  {% else %} {{ data.url }}{{ data.category }}&page={{  data.page-1 }} {% endif %}">
             <span aria-hidden="true">&larr;</span> 前
         </a>
     </div>

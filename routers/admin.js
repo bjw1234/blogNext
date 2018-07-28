@@ -87,7 +87,6 @@ router.post('/photos/add', (req, res) => {
         message: ''
     };
 
-    console.log(time, topic, photos);
     if (!(time && topic && photos)) {
         responseData.message = '时间、主题或内容为空';
         responseData.code = 88;
@@ -123,9 +122,79 @@ router.get('/photos/delete', (req, res) => {
 });
 
 /**
- * 修改图片
+ * 修改图片页
  */
-// router.get('');
+router.get('/photos/edit', (req, res) => {
+    // 定义返回数据的格式
+    let responseData = {
+        code: 0,
+        message: ''
+    };
+
+    let id = req.query.id || '';
+    if (!id) {
+        responseData.code = 33;
+        responseData.message = '图片ID不存在!';
+        res.json(responseData);
+        return;
+    }
+
+    Photo.findOne({
+        _id: id
+    }).then(result => {
+        if (!result) {
+            responseData.code = 33;
+            responseData.message = '图片不存在!';
+            res.json(responseData);
+            return;
+        }
+        res.render('admin/photos_edit', {
+            userInfo: req.userInfo,
+            photo: result,
+            url: '/admin/photos'
+        });
+    });
+});
+
+/**
+ * 提交图片修改
+ */
+router.post('/photos/edit', (req, res) => {
+    let id = req.body.id || '';
+    let time = req.body.time || '';
+    let topic = req.body.topic || '';
+    let photos = req.body.photos || '';
+
+    // 定义返回数据的格式
+    let responseData = {
+        code: 0,
+        message: ''
+    };
+    if (!id) {
+        responseData.message = '修改错误';
+        responseData.code = 89;
+        res.json(responseData);
+        return;
+    }
+    if (!(time && topic && photos)) {
+        responseData.message = '时间、主题或内容为空';
+        responseData.code = 88;
+        res.json(responseData);
+        return;
+    }
+    Photo.update({_id: id}, {
+        time: time,
+        topic: topic,
+        photos: photos
+    }).then(() => {
+        responseData.message = '图片修改成功!';
+        res.json(responseData);
+    }).catch((err) => {
+        responseData.message = '数据库读写错误';
+        responseData.code = 89;
+        res.json(responseData);
+    });
+});
 
 /**
  * 用户管理
@@ -355,11 +424,6 @@ router.post('/article/edit', (req, res) => {
         _id: id
     }).then(article => {
         if (!article) {
-            // res.render('admin/fail', {
-            //     userInfo: req.userInfo,
-            //     message: '修改出错!',
-            //     url: '/admin/article'
-            // });
             responseData.code = 77;
             responseData.message = '修改出错!';
             res.json(responseData);

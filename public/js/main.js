@@ -16,7 +16,6 @@ var mask = document.getElementById('id-mask');
 
 var doc = document.documentElement || document.body;
 var winH = window.innerHeight; // 页面高度
-var winW = window.innerWidth; // 页面高度
 
 var mediaMark = 800; // 媒体查询基准值
 
@@ -90,15 +89,10 @@ imgs.forEach(function (img) {
     img.parentElement.style.maxWidth = '70%';
 });
 
-
 // 给相册的父元素设置宽度
 var imgs = document.querySelectorAll('#id-photoContent img');
 imgs.forEach(function (img) {
-    if (winW > mediaMark) {
-        img.parentElement.style = 'height:192px;max-width:25%;display:inline-block;overflow:hidden;';
-    } else {
-        img.parentElement.style = 'height:172px;max-width:50%;display:inline-block;overflow:hidden;';
-    }
+    img.parentElement.style = 'inline-block;';
 });
 
 // 修改tag的颜色

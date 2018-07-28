@@ -79,6 +79,36 @@ $(document).ready(function () {
     });
 
     /**
+     * 用户修改图片
+     */
+    /**
+     * 用户添加图片
+     * @type {jQuery|HTMLElement}
+     */
+    var formPhotosEdit = $('#form-photos-edit');
+    $('#photos-edit').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: '/admin/photos/edit',
+            data: {
+                id: formPhotosEdit.find('[name="id"]').val(),
+                time: formPhotosEdit.find('[name="time"]').val(),
+                topic: formPhotosEdit.find('[name="topic"]').val(),
+                photos: formPhotosEdit.find('[name="photos"]').val()
+            },
+            success: function (response) {
+                if (!response.code) {
+                    showDialog(response.message, 1, function () {
+                        window.location.href = "/admin/photos";
+                    });
+                } else {
+                    showDialog(response.message, 2);
+                }
+            }
+        });
+    });
+
+    /**
      * 管理员对文章
      * 添加
      * 修改

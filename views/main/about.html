@@ -1,1 +1,29 @@
 {% extends 'layout.html' %}
+
+{% block article %}
+<div class="article" style="overflow: hidden">
+    <div class="article-header">
+        <h1 class="title">关于我</h1>
+    </div>
+    <div class="article-content">
+        <div class="desc views">
+            <h4>感觉侧边菜单栏有点空，就加了 <a href="javascript:;">关于我</a> 这个子项，但是不知所点啥。</h4>
+            <p>em.......</p>
+            <h4>即将大四的老学长一枚吧。</h4>
+            <div class="img-wrapper">
+                <img src="https://s1.ax1x.com/2018/07/28/PUgO4U.jpg" alt="PUgO4U.jpg" border="0"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--PC版-->
+<div id="SOHUCS" sid="about_me"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cytnhRNIM',
+        conf: 'prod_eb5b9f2ecc9626945b387ec815c92385'
+    });
+</script>
+{% endblock %}

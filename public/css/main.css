@@ -247,6 +247,7 @@ body {
     background-color: #ffffff;
     background: linear-gradient(211deg, transparent 24px, #fff 0);
     margin-top: 35px;
+
 }
 
 .article:before {
@@ -268,6 +269,7 @@ body {
     padding: 15px 0 5px 0;
     padding-left: 7.6%;
     padding-right: 7.6%;
+    overflow: hidden;
 }
 
 .article-header .title {
@@ -294,6 +296,10 @@ body {
 .article .article-content {
     padding: 10px 7.6%;
     box-sizing: border-box;
+}
+
+.article .article-content .a-more {
+    color: #2672e9;
 }
 
 .article .article-content img {
@@ -522,11 +528,14 @@ body {
 
 #id-photoContent {
     font-size: 0;
+    column-gap: 10px;
+    column-count: 3;
 }
 
 #id-photoContent img {
     height: 100%;
     display: block;
+    margin-bottom: 10px;
 }
 
 #SOHUCS > div[node-type] {
@@ -605,5 +614,11 @@ body {
 
     .article-nav .nav a {
         padding-left: 10px;
+    }
+
+    #id-photoContent {
+        font-size: 0;
+        column-gap: 10px;
+        column-count: 2;
     }
 }
