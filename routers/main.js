@@ -24,15 +24,6 @@ marked.setOptions({
     }
 });
 
-router.use((req, res, next) => {
-    req.userInfo = {
-        _id: '5a9bf12f7d52c81dd883a959',
-        username: 'hello'
-    };
-    next();
-});
-
-
 // 需要传递给前端的数据
 let data = {};
 

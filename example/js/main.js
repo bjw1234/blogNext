@@ -14,13 +14,6 @@ var backTop = document.getElementById('id-backTop');
 // mask
 var mask = document.getElementById('id-mask');
 
-// 登录按钮
-var loginBtn = document.getElementById('id-login');
-// 遮罩层
-var loginMask = document.getElementById('login-mask');
-var loginWrapper = document.getElementById('login-wrapper');
-var loginForm = document.getElementById('input-form');
-
 var doc = document.documentElement || document.body;
 var winH = window.innerHeight; // 页面高度
 
@@ -68,7 +61,6 @@ menuIcon.addEventListener('click', function () {
     topBar.classList.toggle('hidden');
 });
 
-// 浮层点击
 mask.addEventListener('click', function () {
     sideMenu.classList.remove('show');
     mask.classList.remove('show');
@@ -89,42 +81,4 @@ function smoothScroll() {
         window.scrollTo(0, currentScroll - (currentScroll / 5));
     }
 }
-
-// 给图片父元素设置宽度
-var imgs = document.querySelectorAll('.article-content img');
-imgs.forEach(function (img) {
-    img.parentElement.style.maxWidth = '70%';
-});
-
-// 给相册的父元素设置宽度
-var imgs = document.querySelectorAll('#id-photoContent img');
-imgs.forEach(function (img) {
-    img.parentElement.style = 'inline-block;';
-});
-
-// 修改tag的颜色
-var befs = document.querySelectorAll('.before');
-befs.forEach(function (bef) {
-    var color = getRandomTag();
-    bef.style['border-right-color'] = color;
-    bef.parentElement.style.background = color;
-});
-
-function getRandomTag() {
-    var colors = ['#7b5d5f', '#ba8f6c', '#ff945c', '#cc8167', '#5c9466'];
-    return colors[Math.floor(Math.random() * 5)];
-}
-
-loginBtn.onclick = function () {
-    loginMask.style.display = 'block';
-};
-loginMask.onclick = function () {
-    loginMask.style.display = 'none';
-};
-loginWrapper.onclick = function (e) {
-    e.stopPropagation();
-};
-loginForm.onsubmit = function () {
-    loginMask.style.display = 'none';
-};
 

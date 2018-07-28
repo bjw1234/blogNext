@@ -1,16 +1,23 @@
 const express = require('express');
 const User = require('../models/user');
 const Article = require('../models/article');
+const cookies = require('cookies');
 const Photo = require('../models/photo');
 const router = express.Router();
 
-// router.use((req, res, next) => {
-//     if (!req.userInfo.isAdmin) {
-//         res.send("<h2>只有管理员才能进入后台管理！</h2>");
-//         return;
-//     }
-//     next();
-// });
+router.use((req, res, next) => {
+    try {
+        req.cookies = new cookies(req, res);
+        req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+        if (!(req.userInfo && req.userInfo.isAdmin)) {
+            res.send("<h2>只有管理员才能进入后台管理！</h2>");
+            return;
+        }
+        next();
+    } catch (e) {
+        next();
+    }
+});
 
 router.use((req, res, next) => {
     req.userInfo = {
